@@ -1,12 +1,18 @@
 package com.kotlinsprint.lesson_1
 
-const val INPUTSECONDS = 6480
+import android.annotation.SuppressLint
 
+const val MIN = 60
+const val HOUR = 3600
+
+@SuppressLint("DefaultLocale")
 fun main() {
-    val hours = INPUTSECONDS / 3600
-    val minutes = INPUTSECONDS / 60 % 60
-    val seconds = INPUTSECONDS % 60
+    val inputSeconds = 6480
 
-    val result = "0$hours:$minutes:0$seconds"
+    val hours = inputSeconds / HOUR
+    val minutes = inputSeconds / MIN % 60
+    val seconds = inputSeconds % 60
+
+    val result = String.format("%02d:%02d:%02d", hours, minutes, seconds)
     println(result)
 }
