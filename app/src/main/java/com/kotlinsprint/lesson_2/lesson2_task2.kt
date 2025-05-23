@@ -8,8 +8,8 @@ fun main() {
         CompanyEmployee("стажер", 30, 20000),
     )
 
-    val permanentEmployees = companyEmployees.find { it.type == "работник" }
-    val salaryForPermanentEmployees = permanentEmployees!!.salary * permanentEmployees.count
+    val permanentEmployees = companyEmployees.find { it.type == "работник" } ?: return
+    val salaryForPermanentEmployees = permanentEmployees.salary * permanentEmployees.count
 
     val generalExpenses = companyEmployees.sumOf { it.salary * it.count }
     val averageSalary = generalExpenses / companyEmployees.sumOf { it.count }
