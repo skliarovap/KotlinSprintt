@@ -1,24 +1,21 @@
 package com.kotlinsprint.lesson_2
 
-const val TRAINDEPARTURETIMEHOUR = 9
-const val TRAINDEPARTURETIMEMIN = 39
-const val TRAINWAIST = 457
+import android.annotation.SuppressLint
 
-fun main(){
-    var resultMinutes = TRAINDEPARTURETIMEMIN
-    var resultHours = TRAINDEPARTURETIMEHOUR
+const val HOUR = 60
 
-    for (i in 1..TRAINWAIST){
-        if (resultMinutes != 59){
-            resultMinutes++
-        }
-        else{
-            resultHours++
-            resultMinutes = 0
-        }
-    }
+@SuppressLint("DefaultLocale")
+fun main() {
+    val hours = 9
+    val minutes = 39
+    val trainWaist = 457
 
-    println("$resultHours:$resultMinutes")
+    val departureTime = hours * HOUR + minutes + trainWaist
+    val trainWaistHour = departureTime / HOUR
+    val trainWaistMin = departureTime % HOUR
+    val result = String.format("%02d:%02d", trainWaistHour, trainWaistMin)
+
+    println(result)
 }
 
 /*
