@@ -10,8 +10,8 @@ fun main() {
     val inputSeconds = 6480
 
     val hours = inputSeconds / HOUR
-    val minutes = inputSeconds / MIN % 60
-    val seconds = inputSeconds % 60
+    val minutes = inputSeconds / MIN % MIN
+    val seconds = inputSeconds % MIN
 
     val result = String.format("%02d:%02d:%02d", hours, minutes, seconds)
     println(result)
